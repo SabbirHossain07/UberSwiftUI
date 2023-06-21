@@ -9,8 +9,8 @@ import SwiftUI
 
 struct LocationSearchView: View {
     @State private var startLocationText = ""
-    @State private var destinationLocationText = ""
-    @StateObject var viewModel = LocationSearchViewModel()
+    @Binding var showLocationSearchView: Bool
+    @EnvironmentObject var viewModel: LocationSearchViewModel
     
     var body: some View {
         VStack {
@@ -19,7 +19,7 @@ struct LocationSearchView: View {
             HStack {
                 VStack {
                     Circle()
-                        .fill(Color(.systemGray))
+                        .foregroundColor(.blue)
                         .frame(width: 6, height: 6)
                     Rectangle()
                         .fill(Color(.systemGray))
@@ -31,6 +31,8 @@ struct LocationSearchView: View {
                 
                 VStack {
                     TextField("Current locations", text: $startLocationText)
+                        .accentColor(.blue)
+                        .font(.footnote)
                         .frame(height: 32)
                         .background(Color(.systemGroupedBackground))
                         .padding(.trailing)
@@ -52,7 +54,13 @@ struct LocationSearchView: View {
             ScrollView{
                 VStack(alignment: .leading) {
                     ForEach(viewModel.results, id: \.self) { result in
-                        LocationSearchResultCell(title: result.title, subtitle: result.subtitle)
+                        LocationSearchResultCell(
+                            title: result.title, subtitle: result.subtitle
+                        )
+                        .onTapGesture {
+                            viewModel.selectLocation(result)
+                            showLocationSearchView.toggle()
+                        }
                     }
                 }
             }
@@ -63,6 +71,6 @@ struct LocationSearchView: View {
 
 struct LocationSearchView_Previews: PreviewProvider {
     static var previews: some View {
-        LocationSearchView()
+        LocationSearchView(showLocationSearchView: .constant(false))
     }
 }

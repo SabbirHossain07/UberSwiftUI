@@ -153,6 +153,7 @@
 			isa = PBXGroup;
 			children = (
 				38C9300A2A42094800A78E9E /* View */,
+				38C930122A42ED2600A78E9E /* SubViews */,
 				38C9300B2A42094E00A78E9E /* ViewModel */,
 			);
 			path = LocationSearch;
@@ -163,7 +164,6 @@
 			children = (
 				38C9300C2A42098300A78E9E /* LocationSearchActivationView.swift */,
 				38C930102A42E9C800A78E9E /* LocationSearchView.swift */,
-				38C930122A42ED2600A78E9E /* SubViews */,
 			);
 			path = View;
 			sourceTree = "<group>";
