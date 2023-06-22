@@ -27,6 +27,7 @@ struct UberMapViewRepresentable: UIViewRepresentable {
     func updateUIView(_ uiView: UIViewType, context: Context) {
         if let coordinate = locationViewModel.selectedLocationCoordinate {
             context.coordinator.addAndSelectAnnotation(withCoordinate: coordinate)
+            context.coordinator.configurePolyline(withDestinatonCoordinate: coordinate)
         }
     }
     
@@ -39,6 +40,7 @@ extension UberMapViewRepresentable {
     class Mapcoordinator: NSObject, MKMapViewDelegate {
         //MARK: - Properties
         let parant: UberMapViewRepresentable
+        var userLocationCoordinate: CLLocationCoordinate2D?
         
         //MARK: - Lifecyle
         init(parant: UberMapViewRepresentable) {
@@ -48,8 +50,16 @@ extension UberMapViewRepresentable {
         
         //MARK: - MKMapViewDelegate
         func mapView(_ mapView: MKMapView, didUpdate userLocation: MKUserLocation) {
+            self.userLocationCoordinate = userLocation.coordinate
             let region = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: userLocation.coordinate.latitude, longitude: userLocation.coordinate.longitude), span: MKCoordinateSpan(latitudeDelta: 0.05, longitudeDelta: 0.05))
             parant.mapView.setRegion(region, animated: true)
+        }
+        
+        func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
+            let polyline = MKPolylineRenderer(overlay: overlay)
+            polyline.strokeColor = .systemBlue
+            polyline.lineWidth = 6
+            return polyline
         }
         
         //MARK: - Helpers
@@ -61,6 +71,33 @@ extension UberMapViewRepresentable {
             parant.mapView.selectAnnotation(anno, animated: true)
             
             parant.mapView.showAnnotations(parant.mapView.annotations, animated: true)
+        }
+        
+        func configurePolyline(withDestinatonCoordinate coordinate: CLLocationCoordinate2D) {
+            guard let userLocationCoordinate = self.userLocationCoordinate else { return }
+            getDestinationRout(from: userLocationCoordinate, to: coordinate) { rout in
+                self.parant.mapView.addOverlay(rout.polyline)
+//                self.parant
+            }
+        }
+        
+        func getDestinationRout(from userLocation: CLLocationCoordinate2D, to destination: CLLocationCoordinate2D, completion: @escaping(MKRoute) -> Void) {
+            let userPlacemark = MKPlacemark(coordinate: userLocation)
+            let destPlacemark = MKPlacemark(coordinate: destination)
+            let request = MKDirections.Request()
+            request.source = MKMapItem(placemark: userPlacemark)
+            request.destination = MKMapItem(placemark: destPlacemark)
+            let directions = MKDirections(request: request)
+            
+            directions.calculate { response, error in
+                if let error = error {
+                    print("DEGUG: Failed to get derection with error \(error.localizedDescription)")
+                    return
+                }
+                
+                guard let route = response?.routes.first else { return }
+                completion(route)
+            }
         }
     }
 }
