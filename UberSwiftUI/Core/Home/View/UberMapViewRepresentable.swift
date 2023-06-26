@@ -84,14 +84,14 @@ extension UberMapViewRepresentable {
             anno.coordinate = coordinate
             parant.mapView.addAnnotation(anno)
             parant.mapView.selectAnnotation(anno, animated: true)
-            
-            parant.mapView.showAnnotations(parant.mapView.annotations, animated: true)
         }
         
         func configurePolyline(withDestinatonCoordinate coordinate: CLLocationCoordinate2D) {
             guard let userLocationCoordinate = self.userLocationCoordinate else { return }
             getDestinationRout(from: userLocationCoordinate, to: coordinate) { rout in
                 self.parant.mapView.addOverlay(rout.polyline)
+                let rect = self.parant.mapView.mapRectThatFits(rout.polyline.boundingMapRect, edgePadding: .init(top: 62, left: 32, bottom: 500, right: 32))
+                self.parant.mapView.setRegion(MKCoordinateRegion(rect), animated: true)
             }
         }
         
