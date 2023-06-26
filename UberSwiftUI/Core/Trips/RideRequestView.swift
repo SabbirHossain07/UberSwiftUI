@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct RideRequestView: View {
+    @State private var selectedRideType: RideType = .uberX
+    
     var body: some View {
         VStack {
             Capsule()
@@ -70,24 +72,31 @@ struct RideRequestView: View {
             VStack(spacing: 20) {
                 ScrollView(.horizontal, showsIndicators: false) {
                     HStack(spacing: 12) {
-                        ForEach(0 ..< 3, id: \.self) { _ in
+                        ForEach(RideType.allCases) { type in
                             VStack(alignment: .leading) {
-                                Image("uber-x")
+                                Image(type.imageName)
                                     .resizable()
                                     .scaledToFit()
                                 
-                                VStack(spacing: 4) {
-                                    Text("UberX")
+                                VStack(alignment: .leading ,spacing: 4) {
+                                    Text(type.description)
                                         .font(.system(size: 14, weight: .semibold))
                                     
                                     Text("$22.04")
                                         .font(.system(size: 14, weight: .semibold))
                                 }
-                                .padding(8)
+                                .padding()
                             }
                             .frame(width: 112, height: 140)
-                            .background(Color(.systemGroupedBackground))
+                            .foregroundColor(type == selectedRideType ? .white : .black)
+                            .background(Color(type == selectedRideType ? .systemBlue : .systemGroupedBackground))
+                            .scaleEffect(type == selectedRideType ? 1.2 : 1.0)
                             .cornerRadius(10)
+                            .onTapGesture {
+                                withAnimation(.spring(dampingFraction: 1.0)) {
+                                    selectedRideType = type
+                                }
+                            }
                         }
                     }
                 }
