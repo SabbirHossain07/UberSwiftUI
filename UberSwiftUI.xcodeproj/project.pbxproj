@@ -21,6 +21,7 @@
 		38C930162A42ED7900A78E9E /* LocationSearchResultCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38C930152A42ED7900A78E9E /* LocationSearchResultCell.swift */; };
 		38C930182A4304EB00A78E9E /* LocationSearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38C930172A4304EB00A78E9E /* LocationSearchViewModel.swift */; };
 		38F88D352A49A29300CDF67E /* RideType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38F88D342A49A29300CDF67E /* RideType.swift */; };
+		38F88D372A49C7C600CDF67E /* Double.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38F88D362A49C7C600CDF67E /* Double.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -39,6 +40,7 @@
 		38C930152A42ED7900A78E9E /* LocationSearchResultCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationSearchResultCell.swift; sourceTree = "<group>"; };
 		38C930172A4304EB00A78E9E /* LocationSearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationSearchViewModel.swift; sourceTree = "<group>"; };
 		38F88D342A49A29300CDF67E /* RideType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RideType.swift; sourceTree = "<group>"; };
+		38F88D362A49C7C600CDF67E /* Double.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Double.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,6 +103,7 @@
 		38C92FF92A41EEE300A78E9E /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				38F88D362A49C7C600CDF67E /* Double.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -275,6 +278,7 @@
 				38C930112A42E9C800A78E9E /* LocationSearchView.swift in Sources */,
 				38C930072A41FD6B00A78E9E /* LocationManager.swift in Sources */,
 				387612072A470AAB00AB9461 /* RideRequestView.swift in Sources */,
+				38F88D372A49C7C600CDF67E /* Double.swift in Sources */,
 				387612042A46EACE00AB9461 /* MapViewState.swift in Sources */,
 				38C9300F2A42E75F00A78E9E /* MapViewActionButton.swift in Sources */,
 				38C930012A41F16400A78E9E /* HomeView.swift in Sources */,
