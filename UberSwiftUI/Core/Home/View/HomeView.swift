@@ -36,7 +36,7 @@ struct HomeView: View {
                     .padding(.top, 4)
             }
             
-            if mapState == .locationSelected {
+            if mapState == .locationSelected || mapState == .polylineAdded {
                 RideRequestView()
                     .transition(.move(edge: .bottom))
             }
@@ -44,7 +44,7 @@ struct HomeView: View {
         .edgesIgnoringSafeArea(.bottom)
         .onReceive(LocationManager.shared.$userLocation) { location in
             if let location = location {
-                print("DEBUG: Userlocation in home view in \(location)")
+//                print("DEBUG: Userlocation in home view in \(location)")
                 locationViewModel.userLocation = location
             }
         }

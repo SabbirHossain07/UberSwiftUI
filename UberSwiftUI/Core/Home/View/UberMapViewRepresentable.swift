@@ -34,9 +34,12 @@ struct UberMapViewRepresentable: UIViewRepresentable {
             break
         case .locationSelected:
             if let coordinate = locationViewModel.selectedUberLocation?.coordinate {
+                print("DEBUG: Adding stuf to map..")
                 context.coordinator.addAndSelectAnnotation(withCoordinate: coordinate)
                 context.coordinator.configurePolyline(withDestinatonCoordinate: coordinate)
             }
+            break
+        case .polylineAdded:
             break
         }
     }
@@ -88,6 +91,7 @@ extension UberMapViewRepresentable {
             guard let userLocationCoordinate = self.userLocationCoordinate else { return }
             parant.locationViewModel.getDestinationRout(from: userLocationCoordinate, to: coordinate) { rout in
                 self.parant.mapView.addOverlay(rout.polyline)
+                self.parant.mapState = .polylineAdded
                 let rect = self.parant.mapView.mapRectThatFits(rout.polyline.boundingMapRect, edgePadding: .init(top: 62, left: 32, bottom: 500, right: 32))
                 self.parant.mapView.setRegion(MKCoordinateRegion(rect), animated: true)
             }

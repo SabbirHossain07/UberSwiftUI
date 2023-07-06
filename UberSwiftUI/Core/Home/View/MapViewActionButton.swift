@@ -35,6 +35,9 @@ struct MapViewActionButton: View {
         case .locationSelected:
             mapState = .noInput
             viewModel.selectedUberLocation = nil
+        case .polylineAdded:
+            mapState = .noInput
+            viewModel.selectedUberLocation = nil
         }
     }
     
@@ -44,8 +47,10 @@ struct MapViewActionButton: View {
             return "line.3.horizontal"
         case .searchingForLocation:
             return "arrow.left"
-        case .locationSelected:
+        case .locationSelected, .polylineAdded:
             return "arrow.left"
+        default:
+            return "line.3.horizontal"
         }
     }
 }
