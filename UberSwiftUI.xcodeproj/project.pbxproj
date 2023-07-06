@@ -24,6 +24,7 @@
 		38F88D372A49C7C600CDF67E /* Double.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38F88D362A49C7C600CDF67E /* Double.swift */; };
 		38F88D392A56B82A00CDF67E /* UberLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38F88D382A56B82A00CDF67E /* UberLocation.swift */; };
 		38F88D3B2A56C4D700CDF67E /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38F88D3A2A56C4D700CDF67E /* Color.swift */; };
+		38F88D3D2A56D09C00CDF67E /* TextFieldModifire.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38F88D3C2A56D09C00CDF67E /* TextFieldModifire.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -45,6 +46,7 @@
 		38F88D362A49C7C600CDF67E /* Double.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Double.swift; sourceTree = "<group>"; };
 		38F88D382A56B82A00CDF67E /* UberLocation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UberLocation.swift; sourceTree = "<group>"; };
 		38F88D3A2A56C4D700CDF67E /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
+		38F88D3C2A56D09C00CDF67E /* TextFieldModifire.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldModifire.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,6 +111,7 @@
 			children = (
 				38F88D362A49C7C600CDF67E /* Double.swift */,
 				38F88D3A2A56C4D700CDF67E /* Color.swift */,
+				38F88D3C2A56D09C00CDF67E /* TextFieldModifire.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -290,6 +293,7 @@
 				38C930012A41F16400A78E9E /* HomeView.swift in Sources */,
 				38F88D3B2A56C4D700CDF67E /* Color.swift in Sources */,
 				38C930052A41F78800A78E9E /* UberMapViewRepresentable.swift in Sources */,
+				38F88D3D2A56D09C00CDF67E /* TextFieldModifire.swift in Sources */,
 				38C92FEC2A41EED800A78E9E /* UberSwiftUIApp.swift in Sources */,
 				38F88D392A56B82A00CDF67E /* UberLocation.swift in Sources */,
 				38C9300D2A42098300A78E9E /* LocationSearchActivationView.swift in Sources */,

@@ -31,17 +31,22 @@ struct LocationSearchView: View {
                 
                 VStack {
                     TextField("Current locations", text: $startLocationText)
+                        .padding()
                         .accentColor(.blue)
                         .font(.footnote)
                         .frame(height: 32)
-                        .background(Color(.systemGroupedBackground))
                         .padding(.trailing)
+                        .modifier(customViewModifier(roundedCornes: 5, textColor: .gray))
                     
                     TextField("Where to?", text: $viewModel.quaryFragment)
+                        .font(.footnote)
+                        .fontWeight(.semibold)
+                        .padding()
                         .frame(height: 32)
-                        .background(Color(.systemGray4))
                         .padding(.trailing)
                         .autocorrectionDisabled(true)
+                        .modifier(customViewModifier(roundedCornes: 5, textColor: .gray))
+                    
                 }
             }
             .padding(.horizontal)
