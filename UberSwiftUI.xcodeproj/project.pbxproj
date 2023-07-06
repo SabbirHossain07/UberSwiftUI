@@ -22,6 +22,7 @@
 		38C930182A4304EB00A78E9E /* LocationSearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38C930172A4304EB00A78E9E /* LocationSearchViewModel.swift */; };
 		38F88D352A49A29300CDF67E /* RideType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38F88D342A49A29300CDF67E /* RideType.swift */; };
 		38F88D372A49C7C600CDF67E /* Double.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38F88D362A49C7C600CDF67E /* Double.swift */; };
+		38F88D392A56B82A00CDF67E /* UberLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38F88D382A56B82A00CDF67E /* UberLocation.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -41,6 +42,7 @@
 		38C930172A4304EB00A78E9E /* LocationSearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationSearchViewModel.swift; sourceTree = "<group>"; };
 		38F88D342A49A29300CDF67E /* RideType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RideType.swift; sourceTree = "<group>"; };
 		38F88D362A49C7C600CDF67E /* Double.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Double.swift; sourceTree = "<group>"; };
+		38F88D382A56B82A00CDF67E /* UberLocation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UberLocation.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -113,6 +115,7 @@
 			children = (
 				387612032A46EACE00AB9461 /* MapViewState.swift */,
 				38F88D342A49A29300CDF67E /* RideType.swift */,
+				38F88D382A56B82A00CDF67E /* UberLocation.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -284,6 +287,7 @@
 				38C930012A41F16400A78E9E /* HomeView.swift in Sources */,
 				38C930052A41F78800A78E9E /* UberMapViewRepresentable.swift in Sources */,
 				38C92FEC2A41EED800A78E9E /* UberSwiftUIApp.swift in Sources */,
+				38F88D392A56B82A00CDF67E /* UberLocation.swift in Sources */,
 				38C9300D2A42098300A78E9E /* LocationSearchActivationView.swift in Sources */,
 				38C930162A42ED7900A78E9E /* LocationSearchResultCell.swift in Sources */,
 				38F88D352A49A29300CDF67E /* RideType.swift in Sources */,
